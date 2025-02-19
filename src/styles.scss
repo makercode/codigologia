@@ -1,8 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
+$dark-theme: false !default;
+$link-color: #000000;
+
+@if $dark-theme {
+    $link-color: #ffffff;
+}
+
 body{
     padding: 0;
     margin: 0;
+    a {
+        text-decoration: none;
+        color: $link-color;
+    }
 }
 
 .container {
