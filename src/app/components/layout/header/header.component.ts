@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
-import { LogoComponent } from "../logo/logo.component";
+import { Component, ElementRef } from '@angular/core';
+import { SandwichComponent } from "../../shared/icons/sandwich/sandwich.component";
+import { DrawComponent } from "../../shared/draw/draw.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [LogoComponent],
+  imports: [SandwichComponent, DrawComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent  {
 
 }
