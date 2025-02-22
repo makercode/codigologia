@@ -31,7 +31,7 @@ export class LineComponent implements AfterViewInit  {
   onMouseMove(event: MouseEvent): void {
     this.screenWidth = window.innerWidth;
     console.log('play');
-    let svgTop = this.drawElement.getBoundingClientRect().top + window.scrollY-30;
+    let svgTop = 110 //this.drawElement.getBoundingClientRect().top + window.scrollY-30;
     console.log( svgTop );
 
     console.log(`a ${this.cord.left}`);
