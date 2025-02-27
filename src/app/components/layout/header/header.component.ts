@@ -1,6 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
 import { SandwichComponent } from "../../shared/icons/sandwich/sandwich.component";
-import { DrawComponent } from "../../shared/draw/draw.component";
+import { DrawComponent } from "../../shared/logo/draw/draw.component";
 
 @Component({
   selector: 'app-header',
