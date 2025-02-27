@@ -11,3 +11,17 @@ svg {
 #frame {
     display: flex;
 }
+
+#group-letter-d .highlight {
+    opacity: 0;
+}
+#group-letter-d:hover .highlight {
+    opacity: 1;
+}
+
+#group-letter-e .highlight {
+    opacity: 0;
+}
+#group-letter-e:hover .highlight {
+    opacity: 1;
+}
