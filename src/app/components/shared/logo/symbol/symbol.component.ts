@@ -56,7 +56,6 @@ export class SymbolComponent implements OnInit {
         console.log(changes)
       } 
       if(!changes["isMoving"].currentValue) {
-        console.log("boom")
         gsap.to(`#symbol`, {
           x: 0,
           y: 0,

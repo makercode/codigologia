@@ -61,7 +61,6 @@ export class LineComponent implements OnInit  {
         console.log(changes)
       }
       if(!changes["isMoving"].currentValue) {
-        console.log("boom")
         gsap.to(`#string1 svg path`, {
           attr: { d: this.finalPath },
           duration: 0.8,
