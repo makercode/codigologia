@@ -1,3 +1,13 @@
-<app-header></app-header>
-<router-outlet />
-<app-footer></app-footer>
+<mat-drawer-container class="main-container" autosize>
+
+    <mat-drawer #sidenav class="sidebar" mode="side">
+        <app-menu></app-menu>
+    </mat-drawer>
+    <!--div>
+        {{isMenuOpen}}
+    </div-->
+    <app-header (headerValueChanged)="onHeaderValueChanged($event)" [isMenuOpen]="isMenuOpen"></app-header>
+    <router-outlet />
+    <app-footer></app-footer>
+
+</mat-drawer-container>
