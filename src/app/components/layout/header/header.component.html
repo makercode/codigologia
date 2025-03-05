@@ -2,7 +2,7 @@
     <div class="container">
         <div class="nav-bar">
             <div class="nav-menu">
-                <app-sandwich></app-sandwich>
+                <app-sandwich (valueChanged)="onValueChanged($event)" [isMenuOpen]="isMenuOpen"></app-sandwich>
             </div>
             <div class="logo">
                 <div class="name">
