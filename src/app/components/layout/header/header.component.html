@@ -11,12 +11,13 @@
             </div>
             <div class="user-menu">
                 <a href="#">
-                    INVITADO
+                    {{currentRoute}}
                 </a>
             </div>
         </div>
     </div>
 </header>
-<div class="interactive">
-    <app-draw></app-draw>
+<div class="interactive" 
+[class.top-interactive]="!isHomeRoute">
+    <app-draw [isHomeRoute]="isHomeRoute"></app-draw>
 </div>

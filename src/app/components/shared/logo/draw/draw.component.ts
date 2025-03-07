@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { SymbolComponent } from "../symbol/symbol.component";
 import { LineComponent } from "../line/line.component";
 
@@ -11,11 +11,13 @@ import { LineComponent } from "../line/line.component";
 })
 export class DrawComponent {
 
+  @Input() isHomeRoute: boolean  = false;
+
   public screenWidth: number = window.innerWidth
   public screenHeight: number = window.innerHeight
 
   public xMousePosition: number = this.screenWidth/2
-  public yMousePosition: number = this.screenHeight/2
+  public yMousePosition: number = 50
   private drawElement: any
 
   public isMoving: boolean = true

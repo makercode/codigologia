@@ -6,12 +6,18 @@ svg {
     margin-top: 60px;
     margin-left: -60px;
     z-index: 9;
+    transition: width 0.25s, margin 0.25s;
+}
+.frame.small-logo svg {
+    width: 80px;
+    margin-left: -40px;
+    transition: width 0.25s, margin 0.25s;
 }
 
-#frame {
+
+.frame {
     display: flex;
 }
-
 #group-letter-d .highlight {
     opacity: 0;
 }

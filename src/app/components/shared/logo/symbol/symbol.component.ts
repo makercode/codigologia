@@ -14,6 +14,8 @@ export class SymbolComponent implements OnInit {
   @Input() isMoving: boolean = false;
   @Input() screenWidth: number = window.innerWidth;
   @Input() screenHeight: number = window.innerHeight;
+  
+  @Input() isHomeRoute: boolean  = false;
 
   private frame: any
   public positionLeft: number = this.screenWidth / 2
