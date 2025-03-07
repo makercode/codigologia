@@ -5,12 +5,19 @@
     padding: 6px 0;
     .nav-menu {
         display: flex;
+        min-width: 120px;
     }
     .logo {
         text-align: center;
+        .name {
+            position: relative;
+            top: 0;
+            transition: all 0.25s;
+        }
     }
     .user-menu {
         display: flex;
+        min-width: 120px;
         padding: 0;
         align-items: center;
         justify-content: center;
@@ -19,6 +26,15 @@
 .header {
     position: relative;
     z-index: 9;
+}
+.header.top-interactive {
+    .logo {
+        .name {
+            position: relative;
+            top: -50px;
+            transition: all 0.25s;
+        }
+    }
 }
 .interactive {
     height: 240px;
