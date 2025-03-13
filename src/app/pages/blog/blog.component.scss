@@ -12,13 +12,25 @@
     max-width: 100%;
     width: 100%;
 }
-@media (min-width: 740px) {
+.mat-mdc-card.mdc-card.outline {
+    border-radius: 0;
+    border: 1px solid #000;
+}
+
+
+
+@media (min-width: 580px) {
     .post {
         width:calc((100% - 1rem) / 2);
     }
 }
-@media (min-width: 1024px) {
+@media (min-width: 824px) {
     .post {
         width:calc((100% - 2rem) / 3);
+    }
+}
+@media (min-width: 1024px) {
+    .post {
+        width:calc((100% - 3rem) / 4);
     }
 }
