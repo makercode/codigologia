@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [],
+  imports: [MatCardModule],
   templateUrl: './blog.component.html',
-  styleUrl: './blog.component.scss'
+  styleUrl: './blog.component.scss',
 })
 export class BlogComponent {
 
