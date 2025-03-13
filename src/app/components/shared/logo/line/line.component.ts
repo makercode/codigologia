@@ -14,6 +14,7 @@ export class LineComponent implements OnInit  {
   @Input() xMousePosition: number = this.screenWidth / 2;
   @Input() yMousePosition: number = this.screenHeight / 2;
   @Input() isMoving: boolean = false;
+  @Input() isHomeRoute: boolean  = false;
   
 
   public positionLeft: number = this.screenWidth / 2
