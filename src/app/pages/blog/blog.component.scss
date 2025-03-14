@@ -2,7 +2,6 @@
     margin-top: 80px;
 }
 .blog {
-    justify-content: space-between; 
     display: flex;
     flex-flow: row wrap;
     column-gap: 1rem;
@@ -15,6 +14,20 @@
 .mat-mdc-card.mdc-card.outline {
     border-radius: 0;
     border: 1px solid #000;
+}
+
+.mat-mdc-card-avatar {
+    border: 1px solid #000;
+}
+
+
+.mat-card-title {
+    margin-bottom: .3rem;
+    text-transform: uppercase;
+    word-break: break-word;
+}
+.mat-card-subtitle {
+    margin-bottom: 1rem;
 }
 
 
