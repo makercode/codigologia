@@ -5,7 +5,7 @@
     padding: 6px 0;
     .nav-menu {
         display: flex;
-        min-width: 120px;
+        min-width: 100px;
     }
     .logo {
         display: flex;
@@ -20,10 +20,9 @@
     }
     .user-menu {
         display: flex;
-        min-width: 120px;
+        min-width: 100px;
         padding: 0;
         align-items: center;
-        justify-content: center;
     }
 }
 .header {
