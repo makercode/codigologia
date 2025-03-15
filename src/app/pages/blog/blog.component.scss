@@ -23,11 +23,18 @@
 
 .mat-card-title {
     margin-bottom: .3rem;
-    text-transform: uppercase;
     word-break: break-word;
 }
 .mat-card-subtitle {
     margin-bottom: 1rem;
+    display: flex;
+    .level {
+        margin-left: auto;
+        padding: 1px 9px 0;
+        border-radius: 6px;
+        color: white;
+        background: green;
+    }
 }
 
 
