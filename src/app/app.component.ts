@@ -5,11 +5,12 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
 import { MenuComponent } from "./components/shared/menu/menu.component";
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent, HeaderComponent, MatSidenavModule, MatButtonModule, MenuComponent],
+  imports: [RouterOutlet, FooterComponent, HeaderComponent, MatSidenavModule, MatButtonModule, MenuComponent,MatCardModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
