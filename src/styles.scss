@@ -26,3 +26,9 @@ body{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+markdown h1 {
+    font-size: 3em;
+    text-align: center;
+    text-transform: uppercase;
+}
