@@ -12,6 +12,7 @@ import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+
     provideHttpClient(),
     provideMarkdown(),
     provideZoneChangeDetection(
@@ -31,9 +32,19 @@ export const appConfig: ApplicationConfig = {
           measurementId: "G-NYSHTNPKBZ"
         }
       )
-    ), 
+    ),
     provideAnalytics(() => getAnalytics()), 
     ScreenTrackingService,
-    provideFirestore(() => getFirestore()), provideFirebaseApp(() => initializeApp({ projectId: "codigologia-codesectarian", appId: "1:1061106265584:web:c775717880b11675214135", storageBucket: "codigologia-codesectarian.firebasestorage.app", apiKey: "AIzaSyDC30Tv_x0Y-fo7UjqGWuUyEmzRJjgtc2A", authDomain: "codigologia-codesectarian.firebaseapp.com", messagingSenderId: "1061106265584", measurementId: "G-NYSHTNPKBZ" })), provideAnalytics(() => getAnalytics()), ScreenTrackingService, provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()), 
+    provideFirebaseApp(() => initializeApp(
+      { 
+        projectId: "codigologia-codesectarian", 
+        appId: "1:1061106265584:web:c775717880b11675214135", 
+        storageBucket: "codigologia-codesectarian.firebasestorage.app", 
+        apiKey: "AIzaSyDC30Tv_x0Y-fo7UjqGWuUyEmzRJjgtc2A", 
+        authDomain: "codigologia-codesectarian.firebaseapp.com",
+         messagingSenderId: "1061106265584", measurementId: "G-NYSHTNPKBZ" })), 
+         provideAnalytics(() => getAnalytics()), 
+         ScreenTrackingService, provideFirestore(() => getFirestore())
   ]
 };
