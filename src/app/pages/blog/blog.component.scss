@@ -21,15 +21,29 @@
 }
 
 
-.mat-card-title {
-    margin-bottom: .3rem;
+.linkable {
+    color: #333;
+    cursor: pointer;
+    transition: all 250ms;
+}
+.linkable:hover {
+    color: green;
+    transition: all 250ms;
+    filter: contrast(125%);
+}
+.post-container {
+    margin-bottom: 24px;
+}
+
+.post-container mat-card-title {
+    margin-bottom: .5rem;
     word-break: break-word;
 }
-.mat-card-subtitle {
+
+.post-container mat-card-subtitle {
     margin-bottom: 1rem;
     display: flex;
-    .level {
-        margin-left: auto;
+    .author {
         padding: 1px 9px 0;
         border-radius: 6px;
         color: white;
