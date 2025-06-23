@@ -1,17 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { map, Observable } from 'rxjs';
+import { BlogPost } from '../../interfaces/blog-post';
 
-interface BlogPost {
-  Extract: string;
-  blog: string;
-  date: any; // O usa firestore.Timestamp si importas el tipo
-  image: string;
-  markdown: string;
-  slug: string;
-  title: string;
-  tags: any;
-}
 
 @Injectable({
   providedIn: 'root'
