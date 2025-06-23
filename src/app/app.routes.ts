@@ -5,6 +5,7 @@ import { PostComponent } from './pages/post/post.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { TagComponent } from './pages/tag/tag.component';
 import { AboutComponent } from './pages/about/about.component';
+import { Portfolio } from './pages/portfolio/portfolio';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -27,6 +28,15 @@ export const routes: Routes = [
             {
               path: 'etiqueta/:id',
               component: TagComponent,
+            },
+        ] 
+    },
+    { 
+        path: 'portafolio',
+        children: [
+            {
+            path: '',
+            component: Portfolio,
             },
         ] 
     },
