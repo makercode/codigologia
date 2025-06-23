@@ -16,8 +16,31 @@
                             </mat-card-subtitle>
                         </mat-card-header>
                         
-                        <img class="linkable" [routerLink]="['/blog/articulo', post.slug]" 
-                            mat-card-image [src]="post.image" [alt]="post.title">
+                        <div class="svg-image">
+                            <svg mat-card-image 
+                                viewBox="-150 -110 300 226" 
+                                width="300"
+                                (mousemove)="onMouseMove($event)"
+                                (mouseleave)="onMouseLeave()"> 
+                            <defs>
+                            <clipPath id="clip">
+                                <!-- Círculo que se moverá con el mouse -->
+                                <circle #circleRef id="c" r="100" [attr.cx]="circleX" [attr.cy]="circleY" />
+                            </clipPath>
+                            </defs>
+                            
+                            <!-- Imagen con clip-path aplicado -->
+                            <image 
+                                clip-path="url(#clip)" 
+                                class="linkable" 
+                                [routerLink]="['/blog/articulo', post.slug]" 
+                                [attr.xlink:href]="post.image" 
+                                x="-150" y="-110" 
+                                width="300" height="226">
+                            </image>
+                        </svg>
+                        </div>
+                          
                         
                         <mat-card-content>
                             <p>{{ post.extract }}</p>

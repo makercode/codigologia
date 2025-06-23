@@ -68,3 +68,28 @@
         width:calc((100% - 3rem) / 4);
     }
 }
+
+    circle#c {
+        transition: x 0.5s ease-out, y 0.5s ease-out; /* Más lento para el reset */
+    }
+    //
+
+    .svg-image svg {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-width: 100%;
+    }
+    .svg-image {
+        overflow: hidden;
+    }
+  
+    svg #c {
+        transition: transform 0.25s;
+        transform: scale(2);
+    }
+    svg:hover #c {
+        transition: transform 0.25s;
+        transform: scale(1);
+    }
