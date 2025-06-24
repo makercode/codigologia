@@ -21,7 +21,9 @@ body{
     padding: 0 18px;
     margin: 0 auto;
 }
-
+.small-container {
+    max-width: 820px;
+}
 
 
 html, body { height: 100%; }
@@ -31,4 +33,9 @@ markdown h1 {
     font-size: 3em;
     text-align: center;
     text-transform: uppercase;
+}
+
+markdown img {
+    max-width: 100%;
+    width: 100%;
 }
