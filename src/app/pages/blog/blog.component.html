@@ -1,60 +1,87 @@
 <div class="page">
     <div class="container">
         <div class="blog">
-            <div class="post">
 
-                <div *ngFor="let post of posts$" class="post-container">
-                    <mat-card class="outline" appearance="outlined">
-                        <mat-card-header>
-                            <mat-card-title class="linkable" [routerLink]="['/blog/articulo', post.slug]">
-                                {{ post.title }}
-                            </mat-card-title>
-                            <mat-card-subtitle>
-                                <span class="author">
-                                    {{ post.author }}
-                                </span>
-                            </mat-card-subtitle>
-                        </mat-card-header>
-                        
-                        <div class="svg-image">
-                            <svg mat-card-image 
-                                viewBox="-150 -110 300 226" 
-                                width="300"
-                                (mousemove)="onMouseMove($event)"
-                                (mouseleave)="onMouseLeave()"> 
-                            <defs>
-                            <clipPath id="clip">
+            <!--
+            <mat-card _ngcontent-ng-c1142168344="" appearance="outlined" class="mat-mdc-card mdc-card outline mat-mdc-card-outlined mdc-card--outlined">
+                <mat-card-header _ngcontent-ng-c1142168344="" class="mat-mdc-card-header">
+                    <div class="mat-mdc-card-header-text">
+                        <mat-card-title _ngcontent-ng-c1142168344="" class="mat-mdc-card-title linkable" tabindex="0"> 
+                            Patrones espirituales en el libro el principito 
+                        </mat-card-title>
+                        <mat-card-subtitle _ngcontent-ng-c1142168344="" class="mat-mdc-card-subtitle"><span _ngcontent-ng-c1142168344="" class="author"> 
+                            codesectarian 
+                        </span>
+                        </mat-card-subtitle>
+                    </div>
+                </mat-card-header>
+                <div _ngcontent-ng-c1142168344="" class="svg-image"><svg _ngcontent-ng-c1142168344="" mat-card-image="" viewBox="-150 -110 300 226" width="300" class="mat-mdc-card-image mdc-card__media"><defs _ngcontent-ng-c1142168344=""><clipPath _ngcontent-ng-c1142168344="" id="clip-secretos-de-planetas-en-el-principito"><circle _ngcontent-ng-c1142168344="" id="c" r="100" class="movingCircle" cx="0" cy="0" style="transition: none;"></circle></clipPath>
+                </defs>
+                    <image _ngcontent-ng-c1142168344="" x="-150" y="-110" width="300" height="226" tabindex="0" clip-path="url(#clip-secretos-de-planetas-en-el-principito)" xlink:href="https://raw.githubusercontent.com/codesectarian/codigologia-blog/refs/heads/main/blog/2025/06/secretos-de-planetas-en-el-principito/secretos-de-planetas-en-el-principito.png"></image></svg></div><mat-card-content _ngcontent-ng-c1142168344="" class="mat-mdc-card-content">
+                    <p _ngcontent-ng-c1142168344="">
+                    Desvelamiento de patrones espirituales en la sección de la exploración de los planetas</p></mat-card-content>
+                    <mat-card-actions _ngcontent-ng-c1142168344="" class="mat-mdc-card-actions mdc-card__actions"><mat-chip-listbox _ngcontent-ng-c1142168344="" class="mdc-evolution-chip-set mat-mdc-chip-listbox mat-mdc-chip-set" tabindex="-1" aria-disabled="false" aria-multiselectable="false" aria-orientation="horizontal"><div role="presentation" class="mdc-evolution-chip-set__chips">
+                        <mat-chip _ngcontent-ng-c1142168344="" class="mat-mdc-chip mat-primary mdc-evolution-chip mat-mdc-standard-chip" mat-ripple-loader-uninitialized="" mat-ripple-loader-class-name="mat-mdc-chip-ripple" id="mat-mdc-chip-30"><span class="mat-mdc-chip-focus-overlay"></span><span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"><span matchipaction="" class="mdc-evolution-chip__action mat-mdc-chip-action mdc-evolution-chip__action--primary mdc-evolution-chip__action--presentational" aria-disabled="false">
+                        <span class="mdc-evolution-chip__text-label mat-mdc-chip-action-label">libros<span class="mat-mdc-chip-primary-focus-indicator mat-focus-indicator"></span></span></span></span>
+                         </mat-chip>
+                         <mat-chip _ngcontent-ng-c1142168344="" class="mat-mdc-chip mat-primary mdc-evolution-chip mat-mdc-standard-chip" mat-ripple-loader-uninitialized="" mat-ripple-loader-class-name="mat-mdc-chip-ripple" id="mat-mdc-chip-31"><span class="mat-mdc-chip-focus-overlay"></span><span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"><span matchipaction="" class="mdc-evolution-chip__action mat-mdc-chip-action mdc-evolution-chip__action--primary mdc-evolution-chip__action--presentational" aria-disabled="false">
+                        <span class="mdc-evolution-chip__text-label mat-mdc-chip-action-label">espiritualidad<span class="mat-mdc-chip-primary-focus-indicator mat-focus-indicator"></span></span></span></span>
+                        </mat-chip>
+                        <mat-chip _ngcontent-ng-c1142168344="" class="mat-mdc-chip mat-primary mdc-evolution-chip mat-mdc-standard-chip" ma<span class="mdc-evolution-chip__text-label mat-mdc-chip-action-label">induismo<span class="mat-mdc-chip-primary-focus-indicator mat-focus-indicator"></span></span></span></span> 
+                        </mat-chip> </div> 
+                        </mat-chip-listbox>
+                    </mat-card-actions>
+            </mat-card>
+            -->
+            
+            <mat-card class="outline" appearance="outlined" *ngFor="let post of posts$">
+                <mat-card-header>
+                    <mat-card-title class="linkable" [routerLink]="['/blog/articulo', post.slug]">
+                        {{ post.title }}
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        <span class="author">
+                            {{ post.author }}
+                        </span>
+                    </mat-card-subtitle>
+                </mat-card-header>
+                
+                <div class="svg-image">
+                    <svg mat-card-image 
+                        viewBox="-150 -110 300 226" 
+                        width="300"
+                        (mousemove)="onMouseMove($event)"
+                        (mouseleave)="onMouseLeave($event)"
+                        [routerLink]="['/blog/articulo', post.slug]" > 
+
+                        <defs>
+                            <clipPath id="clip-{{post.slug}}">
                                 <!-- Círculo que se moverá con el mouse -->
-                                <circle #circleRef id="c" r="100" [attr.cx]="circleX" [attr.cy]="circleY" />
+                                <circle id="c" r="100" class="movingCircle" [attr.cx]="circleX" [attr.cy]="circleY" />
                             </clipPath>
-                            </defs>
-                            
-                            <!-- Imagen con clip-path aplicado -->
-                            <image 
-                                clip-path="url(#clip)" 
-                                class="linkable" 
-                                [routerLink]="['/blog/articulo', post.slug]" 
-                                [attr.xlink:href]="post.image" 
-                                x="-150" y="-110" 
-                                width="300" height="226">
-                            </image>
-                        </svg>
-                        </div>
-                          
-                        
-                        <mat-card-content>
-                            <p>{{ post.extract }}</p>
-                        </mat-card-content>
-                        
-                        <mat-card-actions>
-                            <mat-chip-listbox>
-                                <mat-chip *ngFor="let tag of post.tags">{{tag}}</mat-chip>
-                            </mat-chip-listbox>
-                        </mat-card-actions>
-                    </mat-card>
+                        </defs>
+                        <!-- Imagen con clip-path aplicado -->
+                        <image 
+                            [attr.clip-path]="'url(#clip-'+post.slug+')'"
+                            [attr.xlink:href]="post.image" 
+                            x="-150" y="-110" 
+                            width="300" height="226">
+                        </image>
+
+                    </svg>
                 </div>
                 
-            </div>
+                <mat-card-content>
+                    <p>{{ post.extract }}</p>
+                </mat-card-content>
+                
+                <mat-card-actions>
+                    <mat-chip-listbox>
+                        <mat-chip *ngFor="let tag of post.tags">{{tag}}</mat-chip>
+                    </mat-chip-listbox>
+                </mat-card-actions>
+            </mat-card>
+                
         </div>   
     </div>
 </div>

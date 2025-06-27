@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Renderer2 } from '@angular/core';
 
+
 import { BlogService } from './../../services/data/blog.service';
 
 @Component({
@@ -18,7 +19,7 @@ import { BlogService } from './../../services/data/blog.service';
     MatButtonModule,
     MatChipsModule,
     FormsModule,
-    RouterModule
+    RouterModule,
   ],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.scss',
@@ -45,6 +46,10 @@ export class BlogComponent implements OnInit {
   circleY: number = 0;  // Posición Y inicial del círculo
 
   onMouseMove(event: MouseEvent) {
+
+    const target = event.target as SVGSVGElement;
+    const circle = target.querySelector('.movingCircle') as SVGCircleElement;
+
     const svgElement = event.currentTarget as SVGSVGElement;
     
     // Obtiene las coordenadas relativas al SVG
@@ -56,12 +61,14 @@ export class BlogComponent implements OnInit {
     const svgPoint = point.matrixTransform(svgElement.getScreenCTM()?.inverse());
     
     // Actualiza las posiciones del círculo
-    this.circleX = svgPoint.x;
-    this.circleY = svgPoint.y;
+    circle.setAttribute('cx', svgPoint.x.toString())
+    circle.setAttribute('cy', svgPoint.y.toString())
+  
   }
 
-  onMouseLeave() {
-    const circle = this.circleRef.nativeElement;
+  onMouseLeave(event: MouseEvent) {
+    const target = event.target as SVGSVGElement;
+    const circle = target.querySelector('.movingCircle') as SVGCircleElement;
   
     // Activa la transición suave
     this.renderer.setStyle(
@@ -70,14 +77,14 @@ export class BlogComponent implements OnInit {
       'cx 0.25s cubic-bezier(0.25, 0.1, 0.25, 1), cy 0.25s cubic-bezier(0.25, 0.1, 0.25, 1)'
     );
   
-    // Vuelve a la posición inicial
-    this.circleX = this.initialX;
-    this.circleY = this.initialY;
-  
+    circle.setAttribute('cx', "0")
+    circle.setAttribute('cy', "0")
+
     // Elimina la transición después de 0.25s (sin esperar a que termine la animación)
     setTimeout(() => {
       this.renderer.setStyle(circle, 'transition', 'none');
     }, 250); // 250ms = 0.25s
+  
   }
 
 }
