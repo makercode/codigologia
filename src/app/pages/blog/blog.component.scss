@@ -53,6 +53,25 @@ mat-card-subtitle {
     }
 }
 
+.svg-image svg {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+}
+.svg-image {
+    overflow: hidden;
+}
+
+svg #c {
+    transition: transform 0.25s;
+    transform: scale(2);
+}
+svg:hover #c {
+    transition: transform 0.25s;
+    transform: scale(1);
+}
 
 
 @media (min-width: 580px) {
@@ -70,26 +89,3 @@ mat-card-subtitle {
         width:calc((100% - 3rem) / 4);
     }
 }
-    .svg-image svg {
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        max-width: 100%;
-    }
-    .svg-image {
-        overflow: hidden;
-    }
-  
-/**/
-    circle {
-        // transition: all 0.25s ease-out;
-    }
-    svg #c {
-        transition: transform 0.25s;
-        transform: scale(2);
-    }
-    svg:hover #c {
-        transition: transform 0.25s;
-        transform: scale(1);
-    }
