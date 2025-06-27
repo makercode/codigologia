@@ -35,8 +35,8 @@ export class BlogService {
     }
   }
 
-  async storeBlogPost() {
-    console.log("called storeBlogPost")
+  async storeBlogPosts() {
+    console.log("called storeBlogPosts")
     if( !this.isBlogPostStored() ) {
 
       let blogPosts = await this.getBlogPosts();
@@ -55,16 +55,19 @@ export class BlogService {
       
     }
   }
-  async getStoredBlogPost() {
-    console.log("called getStoredBlogPost")
+
+  async getStoredBlogPosts() {
+    console.log("called getStoredBlogPosts")
     if( !this.isBlogPostStored() ) {
       console.log("compile storedBlogPosts", localStorage.getItem('storedBlogPosts'))
-      await this.storeBlogPost()
+      await this.storeBlogPosts()
       return this.getLocalStorageBlogPosts()
     }
     console.log("show storedBlogPosts", localStorage.getItem('storedBlogPosts'))
     return this.getLocalStorageBlogPosts()
   }
+
+
 
 
   getLocalStorageBlogPosts() {

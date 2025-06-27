@@ -34,7 +34,7 @@ export class BlogComponent implements OnInit {
   constructor(private blogService: BlogService, private renderer: Renderer2) {}
 
   async ngOnInit() {
-    this.posts$ = await this.blogService.getStoredBlogPost();
+    this.posts$ = await this.blogService.getStoredBlogPosts();
     console.log(this.posts$)
     /*
     this.blogService.getBlogPosts().subscribe({
