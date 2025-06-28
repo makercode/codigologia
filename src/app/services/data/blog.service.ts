@@ -67,6 +67,16 @@ export class BlogService {
     return this.getLocalStorageBlogPosts()
   }
 
+  
+
+  async getStoredBlogPost(slug:string) {
+    if( !this.isBlogPostStored( )) {
+      await this.storeBlogPosts()
+    }
+    let posts = await this.getStoredBlogPosts()
+    let post = posts.find((post: BlogPost) => post.slug === slug)
+    return post
+  }
 
 
 

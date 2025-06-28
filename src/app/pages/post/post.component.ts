@@ -3,12 +3,18 @@ import { HttpClient } from '@angular/common/http';
 import { MarkdownComponent } from 'ngx-markdown';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { BlogPost } from '../../interfaces/blog-post';
+import { BlogService } from './../../services/data/blog.service';
+import { CommonModule } from '@angular/common';
+import { SafeResourcePipe } from '../../pipes/safe-resource-pipe';
 
 @Component({
   selector: 'app-post',
   standalone: true,
   imports: [
+    CommonModule,
+    SafeResourcePipe,
     MarkdownComponent
   ],
   templateUrl: './post.component.html',
@@ -17,11 +23,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PostComponent {
 
   markdown = `Cargando contenido...`;
+  post$?: BlogPost ;
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private http: HttpClient, 
+    private router: Router,
+    private blogService: BlogService
+  ) {}
 
-  ngOnInit() {
-
+  async ngOnInit() {
     // Obtener la URL completa
     const fullUrl = this.router.url; 
     let pathAfterBlog = "";
@@ -29,17 +39,19 @@ export class PostComponent {
     // Extraer la parte después de 'blog'
     const blogIndex = fullUrl.indexOf('/blog');
     if (blogIndex !== -1) {
-      pathAfterBlog = fullUrl.substring(blogIndex + '/blog/articulo'.length);
-      // Resultado: '/articulo/secretos-de-planetas-en-el-principito'
+      pathAfterBlog = fullUrl.substring(blogIndex + '/blog/articulo/'.length);
+      // Resultado: '/secretos-de-planetas-en-el-principito'
     }
-
     console.log('Path after blog:', pathAfterBlog);
+    this.post$ = await this.blogService.getStoredBlogPost(pathAfterBlog);
+    console.log(this.post$)
+
   
-    this.loadMarkdownContent(pathAfterBlog);
+    this.loadMarkdownContent(this.post$);
   }
 
-  loadMarkdownContent(urlSegment:string) {
-    const markdownUrl = `https://raw.githubusercontent.com/codesectarian/codigologia-blog/refs/heads/main/blog/2025/06/${urlSegment}.md`;
+  loadMarkdownContent(post?:BlogPost) {
+    const markdownUrl = `${post?.markdown}`;
     
     this.http.get(markdownUrl, { responseType: 'text' })
       .pipe(

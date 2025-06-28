@@ -1,5 +1,16 @@
 <div class="page">
     <div class="container small-container">
+        <div class="videos" *ngFor="let video of post$?.videos">
+
+            <iframe height="420" width="100%" *ngIf="video.type=='youtube'"
+                [src]="video.url | safeResource"
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+            
+        </div>
         <markdown class="variable-binding" [data]="markdown"></markdown>
     </div>
 </div>
