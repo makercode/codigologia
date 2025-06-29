@@ -1,9 +1,10 @@
-<div id="draw" (window:resize)="onResize($event)">
+<div id="draw" #draw (window:resize)="onResize($event)">
     <app-line 
     [xMousePosition]="xMousePosition" 
     [yMousePosition]="yMousePosition"
     [screenWidth]="screenWidth"
     [screenHeight]="screenHeight"
+    [topOffSet]="topOffSet"
     [isMoving]="isMoving"
 
     [isHomeRoute]="isHomeRoute" 
@@ -13,6 +14,7 @@
     [yMousePosition]="yMousePosition"
     [screenWidth]="screenWidth"
     [screenHeight]="screenHeight"
+    [topOffSet]="topOffSet"
     [isMoving]="isMoving"
 
     [isHomeRoute]="isHomeRoute" 

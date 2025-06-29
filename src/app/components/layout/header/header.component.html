@@ -1,4 +1,4 @@
-<header class="header" [class.top-interactive]="!isHomeRoute">
+<header class="header" [class.top-interactive]="isHomeRoute">
     <div class="container">
         <div class="nav-bar">
             <div class="nav-menu">
@@ -18,6 +18,6 @@
     </div>
 </header>
 <div class="interactive" 
-[class.top-interactive]="!isHomeRoute">
+[class.top-interactive]="isHomeRoute">
     <app-draw [isHomeRoute]="isHomeRoute"></app-draw>
 </div>

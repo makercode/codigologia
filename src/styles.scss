@@ -39,3 +39,18 @@ markdown img {
     max-width: 100%;
     width: 100%;
 }
+
+.page {
+    padding-top: 120px;
+}
+
+.mat-drawer-content {
+    min-width: 320px;
+}
+
+@media (min-width: 620px) {
+    /* … */
+    .page {
+        padding-top: 80px;
+    }
+}

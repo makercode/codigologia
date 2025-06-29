@@ -1,8 +1,8 @@
 
 <div id="guitar" [class.small-logo]="!isHomeRoute">
-    <div class="string1" id="string1">
-        <svg [attr.width]="this.screenWidth" height="240" xmlns="http://www.w3.org/2000/svg" id="draw">
-            <path id="line" [attr.d]="'M 0 120 Q 500 120 '+this.screenWidth+' 120'" stroke="black" fill="transparent" stroke-width="1.5" />
+    <div class="string1" id="string1" #string1>
+        <svg [attr.width]="this.screenWidth" height="120" xmlns="http://www.w3.org/2000/svg" id="draw">
+            <path id="line" [attr.d]="'M 0 60 Q 500 60 '+this.screenWidth+' 60'" stroke="black" fill="transparent" stroke-width="1.5" />
         </svg>
     </div>
 </div>

@@ -11,25 +11,30 @@ import { gsap } from 'gsap';
 export class SymbolComponent implements OnInit {
   @Input() xMousePosition: number = 0;
   @Input() yMousePosition: number = 0;
-  @Input() isMoving: boolean = false;
   @Input() screenWidth: number = window.innerWidth;
   @Input() screenHeight: number = window.innerHeight;
+  @Input() topOffSet: number = 0;
   
+  @Input() isMoving: boolean = false;
   @Input() isHomeRoute: boolean  = false;
 
-  private frame: any
-  public positionLeft: number = this.screenWidth / 2
-  public positionTop: number = this.screenHeight / 2
+  public positionLeft: number = 0
+  public positionTop: number = 0
   private symbolElement: any
   private symbol: any
 
   constructor(private el: ElementRef) {}
 
   ngOnInit(): void {    
-    this.frame = this.el.nativeElement.querySelector('#frame')
-
     this.symbolElement = this.el.nativeElement.querySelector('#symbol')
     this.symbol = this.symbolElement.getBoundingClientRect()
+
+    gsap.to(`#symbol`, {
+      x: 0,
+      y: 0,
+      duration: 0.3,
+      ease: 'power3.out'
+    });
   }
 
 
@@ -39,7 +44,10 @@ export class SymbolComponent implements OnInit {
     this.symbolElement = this.el.nativeElement.querySelector('#symbol')
     this.symbol = this.symbolElement.getBoundingClientRect()
 
-    if(changes.hasOwnProperty('xMousePosition') || changes.hasOwnProperty('yMousePosition')) {
+    if(
+      changes.hasOwnProperty('xMousePosition') || changes.hasOwnProperty('yMousePosition')
+      
+    ) {
       this.positionLeft = (this.xMousePosition - this.symbol.left - 60)*2/3
       this.positionTop = (this.yMousePosition - this.symbol.top - 60)*7/8
 
@@ -50,7 +58,7 @@ export class SymbolComponent implements OnInit {
         duration: 0.3,
         ease: 'power3.out'
       });
-    } 
+    }
 
     if(changes.hasOwnProperty('isMoving')) {
       if(changes["isMoving"].currentValue) {
@@ -67,7 +75,8 @@ export class SymbolComponent implements OnInit {
       }
     }
 
-
   }
+
+  
 
 }
