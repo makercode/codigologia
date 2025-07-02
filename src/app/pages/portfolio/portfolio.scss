@@ -1,0 +1,135 @@
+.hexagon {
+    height: 280px; /* adjust to control the size  */
+    aspect-ratio: cos(30deg);
+    clip-path: polygon(-50% 50%,50% 100%,150% 50%,50% 0);
+
+    background-image: url("https://loremipsum.imgix.net/oPtkn7DsBOsv8aitV1qns/1606c26302d81bab448e3a39581f86b5/lorem-flickr-1280x720.jpg");
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    border: 2px dotted rgb(96 139 168);
+}
+.hexagon .content {
+    margin-top: -50%;
+    padding-top: 50%;
+    color: #fff;
+}
+
+
+.mat-mdc-card.mdc-card.outline {
+    border-radius: 0;
+    border: 1px solid #000;
+}
+.portfolio {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: .8em;
+}
+.portfolio mat-card {
+    max-width: 300px;
+    min-width: 270px;
+    flex: 0 0 25%;
+}
+
+
+.mat-mdc-card-avatar {
+    border: 1px solid #000;
+}
+
+svg image {
+    pointer-events: none;
+}
+
+.linkable {
+    color: #333;
+    cursor: pointer;
+    transition: all 250ms;
+}
+.linkable:hover {
+    color: green;
+    transition: all 250ms;
+    filter: contrast(125%);
+}
+
+mat-card-title {
+    margin-bottom: .5rem;
+    word-break: break-word;
+}
+
+mat-card-subtitle {
+    margin-bottom: 1rem;
+    display: flex;
+    .author {
+        padding: 1px 9px 0;
+        border-radius: 6px;
+        color: white;
+        background: green;
+    }
+}
+
+.svg-image svg {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+}
+.svg-image {
+    overflow: hidden;
+}
+
+svg #c {
+    transition: transform 0.25s;
+    transform: scale(2);
+}
+svg:hover #c {
+    transition: transform 0.25s;
+    transform: scale(1);
+}
+
+
+@media (min-width: 580px) {
+    .post {
+        width:calc((100% - 1rem) / 2);
+    }
+}
+@media (min-width: 824px) {
+    .post {
+        width:calc((100% - 2rem) / 3);
+    }
+}
+@media (min-width: 1024px) {
+    .post {
+        width:calc((100% - 3rem) / 4);
+    }
+}
+
+/*
+.panal {
+    overflow: hidden;
+}
+.panal-content {
+    width: 120%;
+    margin-right: -15%;
+    margin-left: -5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.hexagon:nth-child(odd) {
+    margin-top: -70px;
+    margin-left: 140px;
+    margin-right: -140px;
+}
+
+.hexagon:nth-child(even) {
+    margin-top: 145px;
+    margin-left: -202px;
+    margin-right: -40px;
+}
+*/

@@ -1,10 +1,70 @@
 <div class="page">
     <div class="container">
-        <h1 class="portfolio">
+        <h1 class="title">
             Portafolio
         </h1>
         <p>
+            Algunos de los 
+        </p>
+        <p>
             link a hoja de vida
         </p>
+        <div class="tags">
+            <mat-chip>Todos</mat-chip>
+            <mat-chip>Angular</mat-chip>
+            <mat-chip>Wordpress</mat-chip>
+        </div>
+        <div class="portfolio">
+
+            <mat-card class="outline" appearance="outlined">
+                <mat-card-header>
+                    <mat-card-title class="linkable" [routerLink]="['/portafolio/proyecto/peru-map']">
+                        Titulo
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        <span class="author">
+                            post.author
+                        </span>
+                    </mat-card-subtitle>
+                </mat-card-header>
+                
+                <div class="svg-image">
+                    <svg mat-card-image 
+                        viewBox="-150 -110 300 226" 
+                        width="300"
+                        (mousemove)="onMouseMove($event)"
+                        (mouseleave)="onMouseLeave($event)"
+                        [routerLink]="['/portafolio/proyecto/peru-map']"
+                        > 
+
+                        <defs>
+                            <clipPath id="clip-peru-map">
+                                <!-- Círculo que se moverá con el mouse -->
+                                <circle id="c" r="100" class="movingCircle" [attr.cx]="circleX" [attr.cy]="circleY" />
+                            </clipPath>
+                        </defs>
+                        <!-- Imagen con clip-path aplicado -->
+                        <image 
+                            [attr.clip-path]="'url(#clip-peru-map)'"
+                            xlink:href="https://raw.githubusercontent.com/codesectarian/codigologia-blog/refs/heads/main/blog/2025/06/secretos-de-planetas-en-el-principito/secretos-de-planetas-en-el-principito.png" 
+                            x="-150" y="-110" 
+                            width="300" height="226">
+                        </image>
+
+                    </svg>
+                </div>
+                
+                <mat-card-content>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, facilis?
+                        Peru map extract
+                    </p>
+                </mat-card-content>
+                
+            </mat-card>
+        </div>
     </div>
+
+
+    
 </div>
