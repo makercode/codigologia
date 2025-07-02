@@ -7,6 +7,7 @@ import { TagComponent } from './pages/tag/tag.component';
 import { AboutComponent } from './pages/about/about.component';
 import { Portfolio } from './pages/portfolio/portfolio';
 import { Contact } from './pages/contact/contact';
+import { Project } from './pages/project/project';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -26,10 +27,11 @@ export const routes: Routes = [
               path: 'categoria/:id',
               component: CategoryComponent,
             },
+            /*
             {
               path: 'etiqueta/:id',
               component: TagComponent,
-            },
+            },*/
         ] 
     },
     { 
@@ -38,6 +40,10 @@ export const routes: Routes = [
             {
             path: '',
             component: Portfolio,
+            },
+            {
+            path: 'Proyecto',
+            component: Project,
             },
         ] 
     },
