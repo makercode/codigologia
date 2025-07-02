@@ -20,7 +20,6 @@
     "@angular/platform-browser": "^20.0.0",
     "@angular/router": "^20.0.0",
     "@glidejs/glide": "^3.7.1",
-    "@types/swiper": "^5.4.3",
     "gsap": "^3.13.0",
     "ngx-markdown": "^20.0.0",
     "rxjs": "~7.8.0",
