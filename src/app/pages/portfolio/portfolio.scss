@@ -26,6 +26,7 @@
     background: #fff;
     color: #000;
     transition: all 250ms;
+    overflow: hidden;
 }
 .hexagon .hexagon-content:hover {
     transition: all 250ms;
@@ -37,9 +38,6 @@
 }
 .hexagon .hexagon-content p {
     margin: 0.5em 0;
-}
-.hexagon:hover .hexagon-content {
-    
 }
 
 
@@ -144,6 +142,32 @@ svg:hover #c {
 }
 .tags .tag {
     margin-right: 8px;
+}
+
+
+
+
+.hexagon-content .movingCircle {
+    left: 0;
+    right: 0;
+    opacity: 0;
+    border-radius: 50%;
+    filter: invert(100%);
+    position: absolute;
+    background: black;
+    z-index: 9;
+    mix-blend-mode: difference;
+    transition: background-color 250ms, opacity 250ms, width 250ms, height 250ms;
+}
+
+
+.hexagon-content:hover .movingCircle {
+    width: 210px;
+    height: 210px;
+    margin-top: -105px;
+    margin-left: -105px;
+    transition: background-color 250ms, opacity 250ms, width 250ms, height 250ms;
+    opacity: 1;
 }
 
 

@@ -21,216 +21,26 @@
     <div class="full-container">
 
         <owl-carousel-o [options]="customOptions" class="panal">
-            <ng-template carouselSlide>
-                <div class="hexagon" carouselSlide>
+            
+            <ng-template carouselSlide *ngFor="let project of portfoltio">
+                <div class="hexagon" 
+                (mousemove)="onMouseMove($event)"
+                (mouseleave)="onMouseLeave($event)">
                     <div class="hexagon-content">
-                        <div class="text">
-                            <h3>
-                                Peru Traveler
-                            </h3>
-                            <p>
-                                Ejercicio Angular usando Ovservables RxJs
-                            </p>
+                        <div class="movingCircle">
                         </div>
-                    </div>
-                </div>
-            </ng-template>  
-            <ng-template carouselSlide>
-                <div class="hexagon" carouselSlide>
-                    <div class="hexagon-content">
                         <div class="text">
                             <h3>
-                                Woo Starsoft
+                                {{project.title}}
                             </h3>
                             <p>
-                                Plugin aplicando patrones para conectar Api Woocommerce y ERP
+                                {{project.text}}
                             </p>
                         </div>
                     </div>
                 </div>
             </ng-template>
-            <ng-template carouselSlide>
-                <div class="hexagon" carouselSlide>
-                    <div class="hexagon-content">
-                        <div class="text">
-                            <h3>
-                                Mano Alzada
-                            </h3>
-                            <p>
-                                Página Wordpress de noticias Wordpress mantenido por más de 6 años 
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>  
-            <ng-template carouselSlide>
-                <div class="hexagon" carouselSlide>
-                    <div class="hexagon-content">
-                        <div class="text">
-                            <h3>
-                                Codigología
-                            </h3>
-                            <p>
-                                Blog Angular interactivo y optimizado en ahorro de recursos
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>  
-            <ng-template carouselSlide>
-                <div class="hexagon" carouselSlide>
-                    <div class="hexagon-content">
-                        <div class="text">
-                            <h3>
-                                MYP
-                            </h3>
-                            <p>
-                                Página Wordpress de presentación para laboratorio dermatológico
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>  
-            <ng-template carouselSlide>
-                <div class="hexagon" carouselSlide>
-                    <div class="hexagon-content">
-                        <div class="text">
-                            <h3>
-                                CYR
-                            </h3>
-                            <p>
-                                Página Wordpress de presentación para proveedor eléctrico
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>  
-            <ng-template carouselSlide>
-                <div class="hexagon" carouselSlide>
-                    <div class="hexagon-content">
-                        <div class="text">
-                            <h3>
-                                Toño Nuñez
-                            </h3>
-                            <p>
-                                Página Wordpress de presentación para el artista Toño Nuñez
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>  
-            <ng-template carouselSlide>
-                <div class="hexagon" carouselSlide>
-                    <div class="hexagon-content">
-                        <div class="text">
-                            <h3>
-                                Monica Pasco
-                            </h3>
-                            <p>
-                                Página Wordpress de presentación para la artista Monica Pasco
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>  
-            <ng-template carouselSlide>
-                <div class="hexagon" carouselSlide>
-                    <div class="hexagon-content">
-                        <div class="text">
-                            <h3>
-                                Voces por el Cambio
-                            </h3>
-                            <p>
-                                Página Wordpress de proyecto social Latoniamericano
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>  
-            <ng-template carouselSlide>
-                <div class="hexagon" carouselSlide>
-                    <div class="hexagon-content">
-                        <div class="text">
-                            <h3>
-                                Yaqua
-                            </h3>
-                            <p>
-                                Página de campaña para el aumento de interacciones en redes sociales
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>  
-            <ng-template carouselSlide>
-                <div class="hexagon" carouselSlide>
-                    <div class="hexagon-content">
-                        <div class="text">
-                            <h3>
-                                Barn
-                            </h3>
-                            <p>
-                                Página interactiva para la previsualización de proyectos tipo establos
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>  
-            <ng-template carouselSlide>
-                <div class="hexagon" carouselSlide>
-                    <div class="hexagon-content">
-                        <div class="text">
-                            <h3>
-                                Beauty Boss
-                            </h3>
-                            <p>
-                                Ecommerce Wordpress de cosméticos y productos de belleza
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>  
-            <ng-template carouselSlide>
-                <div class="hexagon" carouselSlide>
-                    <div class="hexagon-content">
-                        <div class="text">
-                            <h3>
-                                Depor Trivia
-                            </h3>
-                            <p>
-                                Cuestionario sencillo de un equipo de fútbol peruano
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>  
-            <ng-template carouselSlide>
-                <div class="hexagon" carouselSlide>
-                    <div class="hexagon-content">
-                        <div class="text">
-                            <h3>
-                                El negociador
-                            </h3>
-                            <p>
-                                Pagina de campaña hecho para facebook para Cristal
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>  
-            <ng-template carouselSlide>
-                <div class="hexagon" carouselSlide>
-                    <div class="hexagon-content">
-                        <div class="text">
-                            <h3>
-                                Guaraná traductor
-                            </h3>
-                            <p>
-                                Pagina interactiva con traductor cifrado César hecho para Guaraná 
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>  
+
         </owl-carousel-o>
     </div>
     
