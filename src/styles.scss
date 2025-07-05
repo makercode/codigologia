@@ -54,3 +54,23 @@ markdown img {
         padding-top: 80px;
     }
 }
+
+
+// Styles for portfolio
+
+.owl-theme .owl-nav [class*=owl-] {
+    background-color: #000;
+}
+.owl-item:nth-child(odd) .hexagon {
+    position: relative;
+    margin-top: 175%;
+}
+
+.owl-item:nth-child(even) .hexagon {
+    position: relative;
+}
+
+.owl-item:nth-child(even) {
+    position: relative;
+    z-index: 1;
+}

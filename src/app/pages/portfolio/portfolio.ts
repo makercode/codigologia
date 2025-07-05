@@ -5,6 +5,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { RouterModule } from '@angular/router';
 
+import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+
 
 @Component({
   selector: 'app-portfolio',
@@ -13,11 +15,51 @@ import { RouterModule } from '@angular/router';
     MatChipsModule,
     FormsModule,
     RouterModule,
+    CarouselModule
   ],
   templateUrl: './portfolio.html',
   styleUrl: './portfolio.scss'
 })
 export class Portfolio {
+  
+  customOptions: OwlOptions = {
+    loop: false,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    navSpeed: 700,
+    navText: ['<', '>'],
+    autoWidth: true,
+    responsive: {
+      0: {
+        items: 3
+      },
+      340: {
+        items: 4
+      },
+      480: {
+        items: 5
+      },
+      600: {
+        items: 6
+      },
+      820: {
+        items: 8
+      },
+      940: {
+        items: 10
+      },
+      1320: {
+        items: 12
+      },
+      1720: {
+        items: 14
+      }
+    },
+    nav: true
+  }
+
 
   @ViewChild('svgElement') svgElement!: ElementRef<SVGSVGElement>;
   @ViewChild('circleRef') circleRef!: ElementRef<SVGCircleElement>;
@@ -29,8 +71,6 @@ export class Portfolio {
 
   async ngOnInit() {
   }
-  circleX: number = 0;  // Posición X inicial del círculo
-  circleY: number = 0;  // Posición Y inicial del círculo
 
   onMouseMove(event: MouseEvent) {
 
