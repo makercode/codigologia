@@ -25,7 +25,9 @@
             <ng-template carouselSlide *ngFor="let project of portfoltio">
                 <div class="hexagon" 
                 (mousemove)="onMouseMove($event)"
-                (mouseleave)="onMouseLeave($event)">
+                (mouseleave)="onMouseLeave($event)"
+                [routerLink]="['/blog/articulo', project.slug]"
+                >
                     <div class="hexagon-content">
                         <div class="movingCircle">
                         </div>
@@ -39,6 +41,8 @@
                         </div>
                     </div>
                 </div>
+            </ng-template>
+            <ng-template carouselSlide>
             </ng-template>
 
         </owl-carousel-o>
