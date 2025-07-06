@@ -8,6 +8,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { Portfolio } from './pages/portfolio/portfolio';
 import { Contact } from './pages/contact/contact';
 import { Project } from './pages/project/project';
+import { PeruMap } from './pages/projects/peru-map/peru-map';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -42,8 +43,13 @@ export const routes: Routes = [
             component: Portfolio,
             },
             {
-            path: 'Proyecto',
-            component: Project,
+            path: 'proyecto',
+            children: [
+                {
+                path: 'peru-traveler',
+                component: PeruMap,
+                },                
+            ]
             },
         ] 
     },
