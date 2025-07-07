@@ -9,6 +9,7 @@ import { Portfolio } from './pages/portfolio/portfolio';
 import { Contact } from './pages/contact/contact';
 import { Project } from './pages/project/project';
 import { PeruMap } from './pages/projects/peru-map/peru-map';
+import { PeruTravelerComponent } from './pages/projects/peru-traveler/peru-traveler.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -47,7 +48,7 @@ export const routes: Routes = [
             children: [
                 {
                 path: 'peru-traveler',
-                component: PeruMap,
+                component: PeruTravelerComponent,
                 },                
             ]
             },
