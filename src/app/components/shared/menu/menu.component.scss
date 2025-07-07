@@ -4,3 +4,29 @@
     padding: 3px;
     display: inline-block;
 }
+
+.menu-content-link:hover {
+    background: #666;
+}
+
+.menu-content-link.active {
+    color: #000;
+    background: #fff;
+}
+
+
+.menu-list {
+    margin: 0;
+    padding: 0;
+}
+
+.menu-title h1 {
+    padding: 8px 24px;
+    margin: 16px 0 16px 0;
+    color: #ccc;
+}
+
+.menu-list li a {
+    padding: 12px 24px 9px;
+    display: block;
+}
