@@ -10,6 +10,7 @@ import { Contact } from './pages/contact/contact';
 import { Project } from './pages/project/project';
 import { PeruTravelerComponent } from './pages/projects/peru-traveler/peru-traveler.component';
 import { WooStarsoftComponent } from './pages/projects/woo-starsoft/woo-starsoft.component';
+import { ManoalzadaComponent } from './pages/projects/manoalzada/manoalzada.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -53,7 +54,11 @@ export const routes: Routes = [
                 {
                 path: 'woo-starsoft',
                 component: WooStarsoftComponent,
-                },  
+                },
+                {
+                path: 'manoalzada',
+                component: ManoalzadaComponent,
+                },
             ]
             },
         ] 

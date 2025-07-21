@@ -40,7 +40,7 @@ export class Portfolio {
     {
       title: "Mano Alzada",
       text: "Página Wordpress de noticias Wordpress mantenido por más de 6 años",
-      slug: "mano-alzada",
+      slug: "manoalzada",
       state: true
     },
     {
