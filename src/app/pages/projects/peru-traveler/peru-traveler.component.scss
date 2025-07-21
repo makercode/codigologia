@@ -79,3 +79,30 @@ h1 .title {
     padding: 24px;
     text-align: center;
 }
+
+
+.icon-link {
+    border: 3px solid black;
+    border-radius: 3px;
+    position: relative;
+    width: 18px;
+    display: inline-block;
+    height: 18px;
+    bottom: -4px;
+
+    .icon-link-inner {
+        position: relative;
+        z-index: 9;
+        top: -11px;
+        right: -5px;
+    }
+}
+.icon-link:after {    
+    position: absolute;
+    content: " ";
+    height: 70%;
+    width: 70%;
+    background-color: white;
+    top: -17%;
+    right: -20%;
+}
