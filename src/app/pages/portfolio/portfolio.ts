@@ -52,13 +52,13 @@ export class Portfolio {
     {
       title: "MYP",
       text: "Página Wordpress de presentación para laboratorio dermatológico",
-      slug: "",
+      slug: "myp",
       state: true
     },
     {
       title: "CYR",
       text: "Página Wordpress de presentación para proveedor eléctrico",
-      slug: "",
+      slug: "cyr",
       state: true
     },
     {

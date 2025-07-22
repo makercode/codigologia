@@ -12,6 +12,7 @@ import { PeruTravelerComponent } from './pages/projects/peru-traveler/peru-trave
 import { WooStarsoftComponent } from './pages/projects/woo-starsoft/woo-starsoft.component';
 import { ManoalzadaComponent } from './pages/projects/manoalzada/manoalzada.component';
 import { CodigologiaComponent } from './pages/projects/codigologia/codigologia.component';
+import { MypComponent } from './pages/projects/myp/myp.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -63,6 +64,10 @@ export const routes: Routes = [
                 {
                 path: 'codigologia',
                 component: CodigologiaComponent,
+                },
+                {
+                path: 'myp',
+                component: MypComponent,
                 },
             ]
             },
