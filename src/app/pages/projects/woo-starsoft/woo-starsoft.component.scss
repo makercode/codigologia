@@ -15,6 +15,10 @@ h1 .title {
 
 .gallery {
     display: flex;
+    border-bottom: 1px solid black;
+}
+.gallery .column {
+    display: flex;
 }
 
 .gallery img {
