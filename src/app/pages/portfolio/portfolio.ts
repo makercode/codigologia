@@ -70,7 +70,7 @@ export class Portfolio {
     {
       title: "Monica Pasco",
       text: "Página Wordpress de presentación para la artista Monica Pasco",
-      slug: "",
+      slug: "monica-pasco",
       state: true
     },
     {
