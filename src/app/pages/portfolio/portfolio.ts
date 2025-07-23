@@ -64,7 +64,7 @@ export class Portfolio {
     {
       title: "Toño Nuñez",
       text: "Página Wordpress de presentación para el artista Toño Nuñez",
-      slug: "",
+      slug: "tono-nunez",
       state: true
     },
     {

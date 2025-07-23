@@ -14,6 +14,7 @@ import { ManoalzadaComponent } from './pages/projects/manoalzada/manoalzada.comp
 import { CodigologiaComponent } from './pages/projects/codigologia/codigologia.component';
 import { MypComponent } from './pages/projects/myp/myp.component';
 import { CyrComponent } from './pages/projects/cyr/cyr.component';
+import { TonoNunezComponent } from './pages/projects/tono-nunez/tono-nunez.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -73,6 +74,10 @@ export const routes: Routes = [
                 {
                 path: 'cyr',
                 component: CyrComponent,
+                },
+                {
+                path: 'tono-nunez',
+                component: TonoNunezComponent,
                 },
             ]
             },
