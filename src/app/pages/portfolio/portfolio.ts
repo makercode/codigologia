@@ -74,45 +74,39 @@ export class Portfolio {
       state: true
     },
     {
-      title: "Voces por el Cambio",
-      text: "Página Wordpress de proyecto social Latoniamericano",
-      slug: "",
-      state: true
-    },
-    {
       title: "Yaqua",
       text: "Página de campaña para el aumento de interacciones en redes sociales",
-      slug: "",
+      slug: "yaqua",
       state: true
     },
     {
       title: "Barn",
       text: "Página interactiva para la previsualización de proyectos tipo establos",
-      slug: "",
+      slug: "barn",
       state: true
     },
     {
       title: "Beauty Boss",
       text: "Ecommerce Wordpress de cosméticos y productos de belleza",
-      slug: "",
+      slug: "beautyboss",
       state: true
     },
     {
       title: "Depor Trivia",
       text: "Cuestionario sencillo de un equipo de fútbol peruano",
-      slug: "",
+      slug: "depor-trivia",
       state: true
     },
     {
       title: "El negociador",
       text: "Pagina de campaña hecho para facebook para Cristal",
-      slug: "",
+      slug: "negociador",
       state: true
     },
     {
       title: "Guaraná traductor",
       text: "Pagina interactiva con traductor cifrado César hecho para Guaraná",
-      slug: "",
+      slug: "guarana",
       state: true
     }
     /*,
