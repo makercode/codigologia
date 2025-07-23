@@ -13,6 +13,7 @@ import { WooStarsoftComponent } from './pages/projects/woo-starsoft/woo-starsoft
 import { ManoalzadaComponent } from './pages/projects/manoalzada/manoalzada.component';
 import { CodigologiaComponent } from './pages/projects/codigologia/codigologia.component';
 import { MypComponent } from './pages/projects/myp/myp.component';
+import { CyrComponent } from './pages/projects/cyr/cyr.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -68,6 +69,10 @@ export const routes: Routes = [
                 {
                 path: 'myp',
                 component: MypComponent,
+                },
+                {
+                path: 'cyr',
+                component: CyrComponent,
                 },
             ]
             },
