@@ -17,6 +17,7 @@ import { CyrComponent } from './pages/projects/cyr/cyr.component';
 import { TonoNunezComponent } from './pages/projects/tono-nunez/tono-nunez.component';
 import { MonicaPascoComponent } from './pages/projects/monica-pasco/monica-pasco.component';
 import { GuaranaComponent } from './pages/projects/guarana/guarana.component';
+import { NegociadorComponent } from './pages/projects/negociador/negociador.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -88,6 +89,10 @@ export const routes: Routes = [
                 {
                 path: 'guarana',
                 component: GuaranaComponent,
+                },
+                {
+                path: 'negociador',
+                component: NegociadorComponent,
                 },
             ]
             },
