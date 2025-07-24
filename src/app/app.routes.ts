@@ -20,6 +20,7 @@ import { GuaranaComponent } from './pages/projects/guarana/guarana.component';
 import { NegociadorComponent } from './pages/projects/negociador/negociador.component';
 import { DeporTriviaComponent } from './pages/projects/depor-trivia/depor-trivia.component';
 import { BeautybossComponent } from './pages/projects/beautyboss/beautyboss.component';
+import { YaquaComponent } from './pages/projects/yaqua/yaqua.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -101,8 +102,8 @@ export const routes: Routes = [
                 component: DeporTriviaComponent,
                 },
                 {
-                path: 'beautyboss',
-                component: BeautybossComponent,
+                path: 'yaqua',
+                component: YaquaComponent,
                 },
             ]
             },
