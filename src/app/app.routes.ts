@@ -103,6 +103,10 @@ export const routes: Routes = [
                 component: DeporTriviaComponent,
                 },
                 {
+                path: 'beautyboss',
+                component: BeautybossComponent,
+                },
+                {
                 path: 'yaqua',
                 component: YaquaComponent,
                 },
