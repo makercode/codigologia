@@ -18,6 +18,7 @@ import { TonoNunezComponent } from './pages/projects/tono-nunez/tono-nunez.compo
 import { MonicaPascoComponent } from './pages/projects/monica-pasco/monica-pasco.component';
 import { GuaranaComponent } from './pages/projects/guarana/guarana.component';
 import { NegociadorComponent } from './pages/projects/negociador/negociador.component';
+import { DeporTriviaComponent } from './pages/projects/depor-trivia/depor-trivia.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -93,6 +94,10 @@ export const routes: Routes = [
                 {
                 path: 'negociador',
                 component: NegociadorComponent,
+                },
+                {
+                path: 'depor-trivia',
+                component: DeporTriviaComponent,
                 },
             ]
             },
