@@ -1,0 +1,117 @@
+
+.tag {
+    margin-right: 8px;
+}
+
+h1 .title {
+    margin-right: 12px;
+    display: inline-flex;
+}
+
+.double {
+    flex-flow: column;
+    display: flex;
+}
+
+.gallery {
+    display: flex; 
+    justify-content: center;
+    border-bottom: 1px solid black;
+    background: #e9ebea;
+}
+.gallery video {
+    max-width: 100%;
+}
+.gallery .column {
+    display: flex;
+}
+
+.gallery img {
+    max-width: 100%;
+}
+
+.gallery {
+    min-height: 260px;
+}
+
+.source {
+    text-align: center;
+    padding: 24px;
+}
+
+.hexagon {
+    width: 320px;
+    max-width: 100%;
+    aspect-ratio: cos(30deg);
+    clip-path: polygon(-50% 50%,50% 100%,150% 50%,50% 0);
+    border: 1px solid #000;
+    border: 1px solid #000;
+    margin: 0 -95% 0 5%;
+    background: black;
+    text-align: center;
+    position: relative;
+    margin: 0 auto;
+    margin-top: -185px;
+    height: auto;
+}
+
+.hexagon .hexagon-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    clip-path: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0);
+    background: #fff;
+    color: #000;
+    transition: all 250ms;
+    overflow: hidden;
+}
+.hexagon .hexagon-content .content {
+    padding: 32px;
+}
+
+
+.hexagon .hexagon-content h1 {
+    margin: 0.5em 0;
+}
+.hexagon .hexagon-content p {
+    margin: 0.5em 0;
+}
+
+.project {
+    border: 1px solid #000;
+}
+
+.project .info {
+    padding: 24px;
+    text-align: center;
+}
+
+
+.icon-link {
+    border: 3px solid black;
+    border-radius: 3px;
+    position: relative;
+    width: 18px;
+    display: inline-block;
+    height: 18px;
+    bottom: -4px;
+
+    .icon-link-inner {
+        position: relative;
+        z-index: 9;
+        top: -11px;
+        right: -5px;
+    }
+}
+.icon-link:after {    
+    position: absolute;
+    content: " ";
+    height: 70%;
+    width: 70%;
+    background-color: white;
+    top: -17%;
+    right: -20%;
+}

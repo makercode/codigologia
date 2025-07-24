@@ -21,6 +21,7 @@ import { NegociadorComponent } from './pages/projects/negociador/negociador.comp
 import { DeporTriviaComponent } from './pages/projects/depor-trivia/depor-trivia.component';
 import { BeautybossComponent } from './pages/projects/beautyboss/beautyboss.component';
 import { YaquaComponent } from './pages/projects/yaqua/yaqua.component';
+import { MdbarnComponent } from './pages/projects/mdbarn/mdbarn.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -104,6 +105,10 @@ export const routes: Routes = [
                 {
                 path: 'yaqua',
                 component: YaquaComponent,
+                },
+                {
+                path: 'barn',
+                component: MdbarnComponent,
                 },
             ]
             },
