@@ -24,22 +24,33 @@ import { YaquaComponent } from './pages/projects/yaqua/yaqua.component';
 import { MdbarnComponent } from './pages/projects/mdbarn/mdbarn.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'acerca', component: AboutComponent },
+    { 
+        title:'Home',
+        path: '', 
+        component: HomeComponent 
+    },
+    { 
+        title:'Acerca',
+        path: 'acerca', 
+        component: AboutComponent 
+    },
     { 
         path: 'blog',
         children: [
             {
-            path: '',
-            component: BlogComponent,
+                title:'Blog',
+                path: '',
+                component: BlogComponent,
             },
             {
-              path: 'articulo/:id',
-              component: PostComponent,
+                title:'home',
+                path: 'articulo/:id',
+                component: PostComponent,
             },
             {
-              path: 'categoria/:id',
-              component: CategoryComponent,
+                title:'home',
+                path: 'categoria/:id',
+                component: CategoryComponent,
             },
             /*
             {
@@ -52,78 +63,94 @@ export const routes: Routes = [
         path: 'portafolio',
         children: [
             {
-            path: '',
-            component: Portfolio,
+                title:'home',
+                path: '',
+                component: Portfolio,
             },
             {
             path: 'proyecto',
             children: [
                 {
-                path: 'peru-traveler',
-                component: PeruTravelerComponent,
+                    title:'Perú traveler',
+                    path: 'peru-traveler',
+                    component: PeruTravelerComponent,
                 },
                 {
-                path: 'woo-starsoft',
-                component: WooStarsoftComponent,
+                    title:'Woo Starsoft',
+                    path: 'woo-starsoft',
+                    component: WooStarsoftComponent,
                 },
                 {
-                path: 'manoalzada',
-                component: ManoalzadaComponent,
+                    title:'Mano Alzada',
+                    path: 'manoalzada',
+                    component: ManoalzadaComponent,
                 },
                 {
-                path: 'codigologia',
-                component: CodigologiaComponent,
+                    title:'Codigologia',
+                    path: 'codigologia',
+                    component: CodigologiaComponent,
                 },
                 {
-                path: 'myp',
-                component: MypComponent,
+                    title: 'myp',
+                    path: 'myp',
+                    component: MypComponent,
                 },
                 {
-                path: 'cyr',
-                component: CyrComponent,
+                    title: 'cyr',
+                    path: 'cyr',
+                    component: CyrComponent,
                 },
                 {
-                path: 'tono-nunez',
-                component: TonoNunezComponent,
+                    title: 'tono-nunez',
+                    path: 'tono-nunez',
+                    component: TonoNunezComponent,
                 },
                 {
-                path: 'monica-pasco',
-                component: MonicaPascoComponent,
+                    title: 'monica-pasco',
+                    path: 'monica-pasco',
+                    component: MonicaPascoComponent,
                 },
                 {
-                path: 'guarana',
-                component: GuaranaComponent,
+                    title: 'guarana',
+                    path: 'guarana',
+                    component: GuaranaComponent,
                 },
                 {
-                path: 'negociador',
-                component: NegociadorComponent,
+                    title: 'negociador',
+                    path: 'negociador',
+                    component: NegociadorComponent,
                 },
                 {
-                path: 'depor-trivia',
-                component: DeporTriviaComponent,
+                    title: 'depor-trivia',
+                    path: 'depor-trivia',
+                    component: DeporTriviaComponent,
                 },
                 {
-                path: 'beautyboss',
-                component: BeautybossComponent,
+                    title: 'beautyboss',
+                    path: 'beautyboss',
+                    component: BeautybossComponent,
                 },
                 {
-                path: 'yaqua',
-                component: YaquaComponent,
+                    title: 'yaqua',
+                    path: 'yaqua',
+                    component: YaquaComponent,
                 },
                 {
-                path: 'barn',
-                component: MdbarnComponent,
+                    title: 'Barn',
+                    path: 'barn',
+                    component: MdbarnComponent,
                 },
             ]
             },
         ] 
     },
     { 
+        title: 'Contacto',
         path: 'contacto',
         children: [
             {
-            path: '',
-            component: Contact,
+                path: '',
+                component: Contact,
             },
         ] 
     },
