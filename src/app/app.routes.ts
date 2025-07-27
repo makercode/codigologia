@@ -25,7 +25,7 @@ import { MdbarnComponent } from './pages/projects/mdbarn/mdbarn.component';
 
 export const routes: Routes = [
     { 
-        title:'Home',
+        title:'Inicio',
         data: {title: 'Home'},
         path: '', 
         component: HomeComponent 
