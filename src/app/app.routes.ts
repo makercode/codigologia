@@ -26,6 +26,7 @@ import { MdbarnComponent } from './pages/projects/mdbarn/mdbarn.component';
 export const routes: Routes = [
     { 
         title:'Home',
+        data: {title: 'Home'},
         path: '', 
         component: HomeComponent 
     },
@@ -63,7 +64,7 @@ export const routes: Routes = [
         path: 'portafolio',
         children: [
             {
-                title:'home',
+                title:'Portafolio',
                 path: '',
                 component: Portfolio,
             },
@@ -91,47 +92,47 @@ export const routes: Routes = [
                     component: CodigologiaComponent,
                 },
                 {
-                    title: 'myp',
+                    title: 'MYP',
                     path: 'myp',
                     component: MypComponent,
                 },
                 {
-                    title: 'cyr',
+                    title: 'CYR',
                     path: 'cyr',
                     component: CyrComponent,
                 },
                 {
-                    title: 'tono-nunez',
+                    title: 'Toño Nuñez',
                     path: 'tono-nunez',
                     component: TonoNunezComponent,
                 },
                 {
-                    title: 'monica-pasco',
+                    title: 'Monica Pasco',
                     path: 'monica-pasco',
                     component: MonicaPascoComponent,
                 },
                 {
-                    title: 'guarana',
+                    title: 'Guarana',
                     path: 'guarana',
                     component: GuaranaComponent,
                 },
                 {
-                    title: 'negociador',
+                    title: 'Negociador',
                     path: 'negociador',
                     component: NegociadorComponent,
                 },
                 {
-                    title: 'depor-trivia',
+                    title: 'Depor Trivia',
                     path: 'depor-trivia',
                     component: DeporTriviaComponent,
                 },
                 {
-                    title: 'beautyboss',
+                    title: 'Beautyboss',
                     path: 'beautyboss',
                     component: BeautybossComponent,
                 },
                 {
-                    title: 'yaqua',
+                    title: 'Yaqua',
                     path: 'yaqua',
                     component: YaquaComponent,
                 },
