@@ -1,7 +1,7 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { SandwichComponent } from "../../shared/icons/sandwich/sandwich.component";
 import { DrawComponent } from "../../shared/logo/draw/draw.component";
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,20 +14,28 @@ export class HeaderComponent implements OnInit {
   @Input() isMenuOpen: boolean = false;
   @Output() headerValueChanged = new EventEmitter<boolean>()
 
+  title: string = '';
   currentRoute = ""
   public isHomeRoute: boolean = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
   }
   
   ngOnInit(): void {
     this.router.events.subscribe(event => {
-      console.log("evnt")
       if (event instanceof NavigationEnd) {
         this.currentRoute = event.urlAfterRedirects;
-        this.isHomeRoute = this.currentRoute === "/"
+        this.isHomeRoute = this.currentRoute === "/";
+        
+        // Obtener el título de la ruta actual de manera simple
+        let currentRoute = this.route;
+        while (currentRoute.firstChild) {
+          currentRoute = currentRoute.firstChild;
+        }
+        this.title = currentRoute.snapshot.title || '';
+        
+        console.log("Current title:", this.title);
       }
-      console.log("evnt 2")
     });
   }
 
