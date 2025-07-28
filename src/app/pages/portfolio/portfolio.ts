@@ -113,7 +113,7 @@ export class Portfolio {
       title: "El negociador",
       text: "Pagina de campaña hecho para facebook para Cristal",
       slug: "negociador",
-      technology: "wordpress",
+      technology: "html5",
       state: true
     },
     {
