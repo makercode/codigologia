@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
+    "angular-cli-ghpages": "^2.0.3",
     "firebase": "^11.10.0",
     "gsap": "^3.13.0",
     "ngx-markdown": "^19.1.1",
