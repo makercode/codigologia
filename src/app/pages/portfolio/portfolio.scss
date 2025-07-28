@@ -31,7 +31,8 @@
         background-color: black;
         color: #fff;
         img {
-            filter: invert(100%) ;
+            filter: invert(100%);
+            animation: filter 250ms;
         }
     }
     .hexagon-content h3 {
