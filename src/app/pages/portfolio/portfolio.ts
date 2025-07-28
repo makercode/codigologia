@@ -120,7 +120,7 @@ export class Portfolio {
       title: "Guaraná traductor",
       text: "Pagina interactiva con traductor cifrado César hecho para Guaraná",
       slug: "guarana",
-      technology: "wordpress",
+      technology: "codeigniter",
       state: true
     }
     /*,
