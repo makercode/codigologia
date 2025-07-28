@@ -8,69 +8,75 @@
     margin: 0 -95% 0 5%;
     background: black;
     text-align: center;
-}
-.hexagon:hover {
-    background-size: cover;
-    background-position: center;
+    :hover {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .hexagon-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        clip-path: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0);
+        background: #fff;
+        color: #000;
+        transition: all 250ms;
+        overflow: hidden;
+    }
+    .hexagon-content:hover {
+        transition: all 250ms;
+        background-color: black;
+        color: #fff;
+        img {
+            filter: invert(100%);
+            animation: filter 250ms;
+        }
+    }
+    .hexagon-content h3 {
+        margin: 0.5em 0;
+    }
+    .hexagon-content p {
+        margin: 0.5em 0;
+    }
+    .hexagon-content .text {
+        margin-top: -50%;
+        padding-top: 50%;
+        padding-left: 12px;
+        padding-right: 12px;
+        .technologies {
+            text-align: center;
+            img {
+                display: inline-block;
+                max-width: 24px;
+            }
+        }
+    }
 }
 
-.hexagon .hexagon-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    clip-path: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0);
-    background: #fff;
-    color: #000;
-    transition: all 250ms;
-    overflow: hidden;
-}
-.hexagon .hexagon-content:hover {
-    transition: all 250ms;
-    background-color: black;
-    color: #fff;
-}
-.hexagon .hexagon-content h3 {
-    margin: 0.5em 0;
-}
-.hexagon .hexagon-content p {
-    margin: 0.5em 0;
-}
-
-
-.hexagon .hexagon-content .text {
-    margin-top: -50%;
-    padding-top: 50%;
-    padding-left: 12px;
-    padding-right: 12px;
-}
 
 .mat-mdc-card.mdc-card.outline {
     border-radius: 0;
     border: 1px solid #000;
 }
+.mat-mdc-card-avatar {
+    border: 1px solid #000;
+}
+
 .portfolio {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: .8em;
-}
-.portfolio mat-card {
-    max-width: 300px;
-    min-width: 270px;
-    flex: 0 0 25%;
-}
-
-
-.mat-mdc-card-avatar {
-    border: 1px solid #000;
+    mat-card {
+        max-width: 300px;
+        min-width: 270px;
+        flex: 0 0 25%;
+    }
 }
 
-svg image {
-    pointer-events: none;
-}
 
 .linkable {
     color: #333;
