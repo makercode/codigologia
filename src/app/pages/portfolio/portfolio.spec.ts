@@ -24,8 +24,8 @@ describe('Portfolio', () => {
         Portfolio
       ],
       providers: [
-        provideAnimations(), // o provideNoopAnimations()
-        provideRouter([]) // Reemplazo moderno para RouterTestingModule
+        provideAnimations(), 
+        provideRouter([])
       ]
     })
     .compileComponents();
