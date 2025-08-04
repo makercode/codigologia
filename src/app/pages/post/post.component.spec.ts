@@ -1,12 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PostComponent } from './post.component';
-import { CommonModule } from '@angular/common';
-import { SafeResourcePipe } from '../../pipes/safe-resource-pipe';
-import { MarkdownComponent, MarkdownModule, MarkdownService } from 'ngx-markdown';
 import { provideRouter } from '@angular/router';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { BlogService } from '../../services/data/blog.service';
+import { MarkdownComponent, MarkdownModule, MarkdownService, SECURITY_CONTEXT } from 'ngx-markdown';
+import { SafeResourcePipe } from '../../pipes/safe-resource-pipe';
+import { Observable, of } from 'rxjs';
 
-// Mock de BlogService
+// Mock completo de BlogService
+          
+          
 class MockBlogService {
   getStoredBlogPost = jasmine.createSpy('getStoredBlogPost')
     .and.returnValue(Promise.resolve({
@@ -14,12 +18,6 @@ class MockBlogService {
       title: 'Test Post'
     }));
 }
-
-// Mock de MarkdownService
-class MockMarkdownService {
-  compile = jasmine.createSpy('compile').and.returnValue('compiled markdown');
-}
-
 describe('PostComponent', () => {
   let component: PostComponent;
   let fixture: ComponentFixture<PostComponent>;
@@ -27,15 +25,20 @@ describe('PostComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        PostComponent, // Componente standalone
-        CommonModule,
-        SafeResourcePipe,
+        PostComponent,
         MarkdownComponent,
+        SafeResourcePipe,
+        // Importamos el módulo de markdown para configuraciones adicionales
+        MarkdownModule.forRoot()
       ],
       providers: [
         provideRouter([]),
+        // Configuración completa de HttpClient para testing
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting(),
         { provide: BlogService, useClass: MockBlogService },
-        { provide: MarkdownService, useClass: MockMarkdownService } // Mock del servicio
+        // Necesario para ngx-markdown
+        { provide: SECURITY_CONTEXT, useValue: 0 }
       ]
     }).compileComponents();
 
@@ -44,7 +47,10 @@ describe('PostComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
+
+
+  // Agrega más pruebas según sea necesario
 });
