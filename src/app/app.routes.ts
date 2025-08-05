@@ -7,7 +7,6 @@ import { TagComponent } from './pages/tag/tag.component';
 import { AboutComponent } from './pages/about/about.component';
 import { Portfolio } from './pages/portfolio/portfolio';
 import { Contact } from './pages/contact/contact';
-import { Project } from './pages/project/project';
 import { PeruTravelerComponent } from './pages/projects/peru-traveler/peru-traveler.component';
 import { WooStarsoftComponent } from './pages/projects/woo-starsoft/woo-starsoft.component';
 import { ManoalzadaComponent } from './pages/projects/manoalzada/manoalzada.component';
