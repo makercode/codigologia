@@ -3,7 +3,7 @@ import { PostComponent } from './post.component';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { BlogService } from '../../services/data/blog.service';
+import { BlogService } from '../../core/services/data/blog.service';
 import { MarkdownComponent, MarkdownModule, MarkdownService, SECURITY_CONTEXT } from 'ngx-markdown';
 import { SafeResourcePipe } from '../../pipes/safe-resource-pipe';
 import { Observable, of } from 'rxjs';
