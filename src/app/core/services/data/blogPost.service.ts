@@ -14,13 +14,10 @@ export class BlogService {
   // public
 
   public async getStoredBlogPosts() {
-    console.log("called getStoredBlogPosts")
     if( !this.isBlogPostLocalStorageSetted() ) {
-      console.log("compile storedBlogPosts", localStorage.getItem('storedBlogPosts'))
       await this.setLocalStorageBlogPosts()
       return this.getLocalStorageBlogPosts()
     }
-    console.log("show storedBlogPosts", localStorage.getItem('storedBlogPosts'))
     return this.getLocalStorageBlogPosts()
   }
 
@@ -36,7 +33,6 @@ export class BlogService {
   // Private
 
   private async getBlogPosts(): Promise<BlogPost[]> {
-    console.log("called getBlogPosts");
     
     try {
       const data = await this.blogPostRepository.getBlogPosts();
