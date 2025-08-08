@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { Renderer2 } from '@angular/core';
 
 
-import { BlogService } from './../../services/data/blog.service';
+import { BlogService } from '../../core/services/data/blogPost.service';
 
 @Component({
   selector: 'app-blog',

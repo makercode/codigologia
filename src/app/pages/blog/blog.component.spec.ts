@@ -5,7 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { FormsModule } from '@angular/forms';
-import { BlogService } from '../../services/data/blog.service';
+import { BlogService } from '../../core/services/data/blogPost.service';
 import { Firestore } from '@angular/fire/firestore';
 import { of } from 'rxjs';
 import { provideRouter, RouterModule } from '@angular/router';

@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
 import { BlogPost } from '../../interfaces/blog-post';
-import { BlogService } from './../../services/data/blog.service';
+import { BlogService } from '../../core/services/data/blogPost.service';
 import { CommonModule } from '@angular/common';
 import { SafeResourcePipe } from '../../pipes/safe-resource-pipe';
 
