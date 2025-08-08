@@ -31,12 +31,7 @@ export class FirebaseBlogPostRepository extends BlogPostRepository {
       return []; // Retorna array vacío en caso de error
     }
   }
-
-  async getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
-    const posts = await this.getBlogPosts();
-    return posts.find(post => post.slug === slug) || null;
-  }
-
+  
   private mapToBlogPost(data: any): BlogPost {
     return new BlogPost(
       data.id,
