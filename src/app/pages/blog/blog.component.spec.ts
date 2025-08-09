@@ -5,13 +5,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { FormsModule } from '@angular/forms';
-import { BlogService } from '../../core/services/data/blogPost.service';
+import { BlogPostService } from '../../core/services/data/blogPost.service';
 import { of } from 'rxjs';
 import { provideRouter, RouterModule } from '@angular/router';
 import { Renderer2 } from '@angular/core';
 
 // Mock de BlogService
-class MockBlogService {
+class MockBlogPostService {
   getStoredBlogPosts = jasmine.createSpy('getStoredBlogPosts').and.returnValue(Promise.resolve([]));
 }
 
@@ -41,7 +41,7 @@ describe('BlogComponent', () => {
       ],
       providers: [
         provideRouter([]),
-        { provide: BlogService, useClass: MockBlogService },
+        { provide: BlogPostService, useClass: MockBlogPostService },
         { provide: Renderer2, useClass: MockRenderer2 }
       ]
     })

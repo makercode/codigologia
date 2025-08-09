@@ -1,60 +1,17 @@
 import { TestBed } from '@angular/core/testing';
-import { BlogService } from './blogPost.service';
-import { Firestore } from '@angular/fire/firestore';
-import { of } from 'rxjs';
-import { FirebaseTimestamp, BlogPost } from '../../../interfaces/blog-post';
+import { BlogPostService } from './blogPost.service';
+import { BlogPostRepository } from '../../repositories/blogPost.repository';
+import { BlogPost } from '../../domain/blogPost.model';
+import { FirebaseTimestamp } from '../../../shared/interfaces/firebaseTimestamp.interface';
 
-// Mock de FirebaseTimestamp
-const mockTimestamp: FirebaseTimestamp = {
-  seconds: 1672531200,
-  nanoseconds: 0
-};
+// Mock del Repositorio
+class MockBlogPostRepository implements Partial<BlogPostRepository> {
+  getBlogPosts = jasmine.createSpy('getBlogPosts').and.returnValue(Promise.resolve([]));
+}
 
-// Mock de datos de Firestore
-const mockBlogPosts: BlogPost[] = [
-  {
-    id: '1',
-    slug: 'post-1',
-    title: 'Primer Post',
-    author: 'Autor 1',
-    date: mockTimestamp,
-    extract: 'Extracto del primer post',
-    image: 'image1.jpg',
-    markdown: 'assets/markdown/post1.md',
-    tags: ['angular', 'firebase'],
-    published: true,
-    featured: true
-  },
-  {
-    id: '2',
-    slug: 'post-2',
-    title: 'Segundo Post',
-    author: 'Autor 2',
-    date: mockTimestamp,
-    extract: 'Extracto del segundo post',
-    image: 'image2.jpg',
-    markdown: 'assets/markdown/post2.md',
-    tags: ['testing', 'typescript'],
-    videos: [
-      {
-        type: 'youtube',
-        url: 'https://youtube.com/watch?v=123'
-      }
-    ],
-    published: true
-  }
-];
-
-// Mock de Firestore con datos completos
-const mockFirestore = {
-  collection: jasmine.createSpy('collection').and.returnValue({
-    collectionData: jasmine.createSpy('collectionData').and.returnValue(of(mockBlogPosts))
-  })
-};
-
-// Mock de localStorage mejorado
+// Mock de localStorage
 class MockLocalStorage {
-  private storage: { [key: string]: string } = {};
+  private storage: Record<string, string> = {};
 
   getItem(key: string): string | null {
     return this.storage[key] || null;
@@ -64,150 +21,156 @@ class MockLocalStorage {
     this.storage[key] = value;
   }
 
-  removeItem(key: string): void {
-    delete this.storage[key];
-  }
-
   clear(): void {
     this.storage = {};
   }
 }
 
 describe('BlogService', () => {
-  let service: BlogService;
+  let service: BlogPostService;
+  let repository: MockBlogPostRepository;
   let localStorageMock: MockLocalStorage;
+
+  // Datos de prueba
+  const mockTimestamp: FirebaseTimestamp = {
+    seconds: 1672531200,
+    nanoseconds: 0
+  };
+
+  const mockBlogPosts: BlogPost[] = [
+    new BlogPost(
+      '1',
+      'first-post',
+      'First Post',
+      'Author 1',
+      mockTimestamp,
+      'Extract 1',
+      'image1.jpg',
+      'content1.md',
+      ['angular', 'firebase'],
+      [{ type: 'youtube', url: 'http://youtube.com/1' }],
+      'Full content 1',
+      true,
+      true
+    ),
+    new BlogPost(
+      '2',
+      'second-post',
+      'Second Post',
+      'Author 2',
+      mockTimestamp,
+      'Extract 2',
+      'image2.jpg',
+      'content2.md',
+      ['testing'],
+      undefined,
+      undefined,
+      true,
+      false
+    )
+  ];
 
   beforeEach(() => {
     localStorageMock = new MockLocalStorage();
     
     TestBed.configureTestingModule({
       providers: [
-        BlogService,
-        { provide: Firestore, useValue: mockFirestore },
+        BlogPostService,
+        { provide: BlogPostRepository, useClass: MockBlogPostRepository },
         { provide: localStorage, useValue: localStorageMock }
       ]
     });
 
-    service = TestBed.inject(BlogService);
+    service = TestBed.inject(BlogPostService);
+    repository = TestBed.inject(BlogPostRepository) as unknown as MockBlogPostRepository;
   });
 
   afterEach(() => {
     localStorageMock.clear();
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-
-  describe('getBlogPosts()', () => {
-    it('should return complete blog posts structure', async () => {
-      const posts = await service.getBlogPosts();
-      
-      expect(posts.length).toBe(2);
-      expect(posts[0].id).toBe('1');
-      expect(posts[0].title).toBe('Primer Post');
-      expect(posts[0].date).toEqual(mockTimestamp);
-      expect(posts[0].tags).toContain('angular');
-      expect(posts[0].published).toBeTrue();
-      expect(posts[0].featured).toBeTrue();
-      
-      expect(posts[1].videos?.length).toBe(1);
-      expect(posts[1].videos?.[0].type).toBe('youtube');
+  describe('getStoredBlogPosts()', () => {
+    it('should return empty array when no data exists', async () => {
+      const result = await service.getStoredBlogPosts();
+      expect(result).toEqual([]);
+      expect(repository.getBlogPosts).toHaveBeenCalled();
     });
 
-    it('should handle empty response from Firestore', async () => {
-      mockFirestore.collection().collectionData.and.returnValue(of([]));
-      const posts = await service.getBlogPosts();
-      expect(posts.length).toBe(0);
-    });
-  });
-
-  /*
-  describe('storeBlogPosts()', () => {
-    it('should store complete post structure in localStorage', async () => {
-      await service.storeBlogPosts();
-      const storedData = localStorageMock.getItem('storedBlogPosts');
-      const parsedData: BlogPost[] = JSON.parse(storedData || '[]');
+    it('should return cached data from localStorage', async () => {
+      localStorageMock.setItem('storedBlogPosts', JSON.stringify(mockBlogPosts));
       
-      expect(parsedData[0].slug).toBe('post-1');
-      expect(parsedData[0].date).toEqual(mockTimestamp);
-      expect(parsedData[1].videos?.length).toBe(1);
+      const result = await service.getStoredBlogPosts();
+      expect(result.length).toBe(2);
+      expect(result[0].title).toBe('First Post');
+      expect(repository.getBlogPosts).not.toHaveBeenCalled();
+    });
+
+    it('should fetch from repository when no cache exists', async () => {
+      repository.getBlogPosts.and.returnValue(Promise.resolve(mockBlogPosts));
+      
+      const result = await service.getStoredBlogPosts();
+      expect(result.length).toBe(2);
+      expect(localStorageMock.getItem('storedBlogPosts')).toBe(JSON.stringify(mockBlogPosts));
+    });
+
+    it('should handle repository errors gracefully', async () => {
+      repository.getBlogPosts.and.returnValue(Promise.reject('API Error'));
+      
+      const result = await service.getStoredBlogPosts();
+      expect(result).toEqual([]);
     });
   });
 
   describe('getStoredBlogPost()', () => {
-    beforeEach(async () => {
-      await service.storeBlogPosts();
+    it('should return null when post not found', async () => {
+      repository.getBlogPosts.and.returnValue(Promise.resolve(mockBlogPosts));
+      const result = await service.getStoredBlogPost('non-existent');
+      expect(result).toBeNull();
     });
 
-    it('should return complete post by slug', async () => {
-      const post = await service.getStoredBlogPost('post-1');
+    it('should return correct post by slug', async () => {
+      repository.getBlogPosts.and.returnValue(Promise.resolve(mockBlogPosts));
       
-      expect(post?.id).toBe('1');
-      expect(post?.title).toBe('Primer Post');
-      expect(post?.date).toEqual(mockTimestamp);
-      expect(post?.tags).toEqual(jasmine.arrayContaining(['angular']));
-      expect(post?.published).toBeTrue();
+      const result = await service.getStoredBlogPost('second-post');
+      expect(result?.title).toBe('Second Post');
+      expect(result?.featured).toBeFalse();
     });
 
-    it('should return post with videos', async () => {
-      const post = await service.getStoredBlogPost('post-2');
+    it('should fetch data if not cached', async () => {
+      repository.getBlogPosts.and.returnValue(Promise.resolve(mockBlogPosts));
       
-      expect(post?.videos?.length).toBe(1);
-      expect(post?.videos?.[0].url).toContain('youtube.com');
-    });
-
-    it('should return undefined for unpublished posts', async () => {
-      // Agregamos un post no publicado al mock
-      const unpublishedPost: BlogPost = {
-        id: '3',
-        slug: 'unpublished',
-        title: 'Borrador',
-        author: 'Autor',
-        date: mockTimestamp,
-        extract: 'Extracto',
-        image: 'image.jpg',
-        markdown: 'content.md',
-        tags: [],
-        published: false
-      };
-      
-      localStorageMock.setItem('storedBlogPosts', JSON.stringify([...mockBlogPosts, unpublishedPost]));
-      
-      const post = await service.getStoredBlogPost('unpublished');
-      expect(post).toBeUndefined();
+      const result = await service.getStoredBlogPost('first-post');
+      expect(result?.title).toBe('First Post');
+      expect(repository.getBlogPosts).toHaveBeenCalled();
     });
   });
 
-  describe('filtering functionality', () => {
-    beforeEach(async () => {
-      await service.storeBlogPosts();
+  describe('private methods', () => {
+    describe('getBlogPosts()', () => {
+      it('should return BlogPost array from repository', async () => {
+        repository.getBlogPosts.and.returnValue(Promise.resolve(mockBlogPosts));
+        const result = await (service as any).getBlogPosts();
+        expect(result[0]).toBeInstanceOf(BlogPost);
+        expect(result[0].videos?.length).toBe(1);
+      });
     });
 
-    it('should only return published posts', async () => {
-      // Agregamos un post no publicado
-      const postsWithDraft = [
-        ...mockBlogPosts,
-        {
-          id: '3',
-          slug: 'draft',
-          title: 'Borrador',
-          author: 'Autor',
-          date: mockTimestamp,
-          extract: 'Extracto',
-          image: 'image.jpg',
-          markdown: 'content.md',
-          tags: [],
-          published: false
-        }
-      ];
-      
-      localStorageMock.setItem('storedBlogPosts', JSON.stringify(postsWithDraft));
-      
-      const storedPosts = await service.getStoredBlogPosts();
-      expect(storedPosts.length).toBe(2); // Solo los 2 publicados
+    describe('setLocalStorageBlogPosts()', () => {
+      it('should store serialized BlogPost objects', async () => {
+        repository.getBlogPosts.and.returnValue(Promise.resolve(mockBlogPosts));
+        await (service as any).setLocalStorageBlogPosts();
+        
+        const storedData = localStorageMock.getItem('storedBlogPosts');
+        expect(JSON.parse(storedData || '')[0].title).toBe('First Post');
+      });
     });
 
+    describe('getLocalStorageBlogPosts()', () => {
+      it('should parse stored BlogPost objects', () => {
+        localStorageMock.setItem('storedBlogPosts', JSON.stringify(mockBlogPosts));
+        const result = (service as any).getLocalStorageBlogPosts();
+        expect(result[0].date.seconds).toBe(mockTimestamp.seconds);
+      });
+    });
   });
-  */
 });
