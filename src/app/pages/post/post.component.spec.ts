@@ -3,7 +3,7 @@ import { PostComponent } from './post.component';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { BlogService } from '../../core/services/data/blogPost.service';
+import { BlogPostService } from '../../core/services/data/blogPost.service';
 import { MarkdownComponent, MarkdownModule, MarkdownService, SECURITY_CONTEXT } from 'ngx-markdown';
 import { SafeResourcePipe } from '../../pipes/safe-resource-pipe';
 import { Observable, of } from 'rxjs';
@@ -36,7 +36,7 @@ describe('PostComponent', () => {
         // Configuración completa de HttpClient para testing
         provideHttpClient(withInterceptorsFromDi()),
         provideHttpClientTesting(),
-        { provide: BlogService, useClass: MockBlogService },
+        { provide: BlogPostService, useClass: MockBlogService },
         // Necesario para ngx-markdown
         { provide: SECURITY_CONTEXT, useValue: 0 }
       ]
