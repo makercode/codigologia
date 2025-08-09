@@ -4,7 +4,7 @@ import { MarkdownComponent } from 'ngx-markdown';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
-import { BlogPost } from '../../interfaces/blog-post';
+import { BlogPost } from '../../interfaces/blogPost';
 import { BlogPostService } from '../../core/services/data/blogPost.service';
 import { CommonModule } from '@angular/common';
 import { SafeResourcePipe } from '../../pipes/safe-resource-pipe';
