@@ -6,9 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Renderer2 } from '@angular/core';
-
-
-import { BlogService } from '../../core/services/data/blogPost.service';
+import { BlogPostService } from '../../core/services/data/blogPost.service';
 
 @Component({
   selector: 'app-blog',
@@ -31,7 +29,7 @@ export class BlogComponent implements OnInit {
   initialY: number = 0;
   
   posts$:any;
-  constructor(private blogService: BlogService, private renderer: Renderer2) {}
+  constructor(private blogService: BlogPostService, private renderer: Renderer2) {}
 
   async ngOnInit() {
     this.posts$ = await this.blogService.getStoredBlogPosts();

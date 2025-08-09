@@ -5,7 +5,7 @@ import { BlogPostRepository } from '../../repositories/blogPost.repository';
 @Injectable({
   providedIn: 'root'
 })
-export class BlogService {
+export class BlogPostService {
   // Firebase repository is configured in app.config.ts injected by BlogPostRepository
   constructor(private blogPostRepository: BlogPostRepository) {}
 
