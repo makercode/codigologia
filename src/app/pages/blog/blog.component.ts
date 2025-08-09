@@ -36,14 +36,6 @@ export class BlogComponent implements OnInit {
   async ngOnInit() {
     this.posts$ = await this.blogService.getStoredBlogPosts();
     console.log(this.posts$)
-    /*
-    this.blogService.getBlogPosts().subscribe({
-      next: (data) => {
-        console.log('Datos recibidos:', data);
-        this.posts$ = data;
-      },
-      error: (err) => console.error('Error:', err)
-    });*/
   }
   circleX: number = 0;  // Posición X inicial del círculo
   circleY: number = 0;  // Posición Y inicial del círculo
