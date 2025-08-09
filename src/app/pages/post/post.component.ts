@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
 import { BlogPost } from '../../interfaces/blog-post';
-import { BlogService } from '../../core/services/data/blogPost.service';
+import { BlogPostService } from '../../core/services/data/blogPost.service';
 import { CommonModule } from '@angular/common';
 import { SafeResourcePipe } from '../../pipes/safe-resource-pipe';
 
@@ -28,7 +28,7 @@ export class PostComponent {
   constructor(
     private http: HttpClient, 
     private router: Router,
-    private blogService: BlogService
+    private blogPostService: BlogPostService
   ) {}
 
   async ngOnInit() {
@@ -43,7 +43,7 @@ export class PostComponent {
       // Resultado: '/secretos-de-planetas-en-el-principito'
     }
     console.log('Path after blog:', pathAfterBlog);
-    this.post$ = await this.blogService.getStoredBlogPost(pathAfterBlog);
+    this.post$ = await this.blogPostService.getStoredBlogPost(pathAfterBlog);
     console.log(this.post$)
 
   
