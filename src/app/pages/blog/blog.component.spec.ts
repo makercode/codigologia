@@ -6,22 +6,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { FormsModule } from '@angular/forms';
 import { BlogService } from '../../core/services/data/blogPost.service';
-import { Firestore } from '@angular/fire/firestore';
 import { of } from 'rxjs';
 import { provideRouter, RouterModule } from '@angular/router';
-// import { provideRouter } from '@angular/router';
-
-// Mock de Firestore
-const firestoreMock = {
-  collection: jasmine.createSpy('collection').and.returnValue({
-    // Simula collectionData que retorna un Observable
-    collectionData: jasmine.createSpy('collectionData').and.returnValue(of([]))
-  })
-};
+import { Renderer2 } from '@angular/core';
 
 // Mock de BlogService
 class MockBlogService {
   getStoredBlogPosts = jasmine.createSpy('getStoredBlogPosts').and.returnValue(Promise.resolve([]));
+}
+
+class MockRenderer2 {
+  setStyle = jasmine.createSpy('setStyle');
+  // Añade otros métodos que uses de Renderer2
+  removeStyle = jasmine.createSpy('removeStyle');
+  addClass = jasmine.createSpy('addClass');
+  removeClass = jasmine.createSpy('removeClass');
+  // ... etc
 }
 
 describe('BlogComponent', () => {
@@ -41,8 +41,8 @@ describe('BlogComponent', () => {
       ],
       providers: [
         provideRouter([]),
-        { provide: Firestore, useValue: firestoreMock },
-        { provide: BlogService, useClass: MockBlogService }
+        { provide: BlogService, useClass: MockBlogService },
+        { provide: Renderer2, useClass: MockRenderer2 }
       ]
     })
     .compileComponents();
